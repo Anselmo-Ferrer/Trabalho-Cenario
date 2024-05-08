@@ -10,7 +10,8 @@ let maxIteracoes = 100;
 let derivada = math.derivative(funcao, 'x');
 console.log(`Funcao: ${funcao}`)
 console.log(`Derivada: ${derivada}`)
-console.log(`Velocidade Inicial: ${velocidade}`)
+console.log(`Velocidade: ${velocidade} m/s`)
+console.log(`x0 = ${velocidade}`)
 console.log(`---------------------------------------------------`)
 
 // Função para calcular o método de Newton-Raphson
@@ -55,4 +56,4 @@ function newtonRaphson(funcao, velocidade, tolerancia, maxIteracoes) {
 
 const resultado = newtonRaphson(funcao, velocidade, tolerancia, maxIteracoes)
 
-console.log(`Instante Aproximado = ${resultado}`)
+console.log(`Instante aproximado em que o personagem atinge a velocidade de 3 m/s: ${resultado}`)

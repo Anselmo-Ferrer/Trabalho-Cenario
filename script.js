@@ -2,17 +2,19 @@
 const math = require('mathjs');
 // npm install mathjs
 
+
+let velocidade = 3; // velocidade encontrada entre a media das matriculas
+
 let funcao = '-0.0028x^7 + 0.1048x^6 - 2.4379x^5 + 36.016x^4 - 333.3024x^3 + 1816.4963x^2 - 5006.4931x + 4476.7823'; // Função encontrada no geogebra
-let velocidade = 1000; 
+let x0 = 3;
 let tolerancia = 0.001; // tolerância de 1%
 let maxIteracoes = 1000; 
 
 // Função para calcular o método de Newton-Raphson
-function newtonRaphson(funcao, velocidade, tolerancia, maxIteracoes) {
-    let x = velocidade;
+function newtonRaphson(funcao, velocidade, tolerancia, maxIteracoes, x0) {
+    let x = x0; // x0 = 3
     let interacoes = 0;
     let diferenca = Infinity;
-    let derivada = math.derivative(funcao, 'x');
 
     // loop para calcular o Newton-Raphson ate a diferença ser menor que 1%
     while (interacoes < maxIteracoes) {
@@ -45,6 +47,6 @@ function newtonRaphson(funcao, velocidade, tolerancia, maxIteracoes) {
     return x;
 }
 
-const resultado = newtonRaphson(funcao, velocidade, tolerancia, maxIteracoes)
+const resultado = newtonRaphson(funcao, velocidade, tolerancia, maxIteracoes, x0)
 
-console.log(`Instante Aproximado = ${resultado}`)
+console.log(`Instante aproximado em que o personagem atinge a velocidade de 3 m/s: ${resultado}`)
